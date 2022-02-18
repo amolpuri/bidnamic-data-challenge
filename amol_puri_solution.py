@@ -1,10 +1,10 @@
-New_Cell
+# New_Cell
 pip install pandas
 
-New_Cell
+# New_Cell
 pip install mysql-connector-python
 
-New_Cell
+# New_Cell
 import pandas as pd
 
 
