@@ -1,37 +1,34 @@
-//New_Cell
+New_Cell
 pip install pandas
 
-//New_Cell
+New_Cell
 pip install mysql-connector-python
 
-//New_Cell
+New_Cell
 import pandas as pd
 
 
-//New_Cell
-
-
-//We can also read the csv file by uploading it to S3
-// using boto3 library and by mentioning s3 location of the object
+# We can also read the csv file by uploading it to S3
+#  using boto3 library and by mentioning s3 location of the object
 campaigns = pd.read_csv(r'C:\Users\amol.puri\Downloads\campaigns.csv', index_col=False, delimiter=',')
-// print(campaigns)
+#  print(campaigns)
 
 search_terms = pd.read_csv(r'C:\Users\amol.puri\Downloads\search_terms.csv', index_col=False, delimiter=',')
-// print(search_terms)
+#  print(search_terms)
 
-// adgroups = pd.read_csv(r'C:\Users\amol.puri\Downloads\adgroups.csv', index_col=False, delimiter=',')
-// print(adgroups)
+#  adgroups = pd.read_csv(r'C:\Users\amol.puri\Downloads\adgroups.csv', index_col=False, delimiter=',')
+#   print(adgroups)
 
 adgroups = pd.read_csv(r'C:\Users\amol.puri\Downloads\adgroups.csv', index_col=False, delimiter=',')
-// print(adgroups)
+#  print(adgroups)
 
 
-//New_Cell
+# New_Cell
 adgroups[['Shift','Shopping','country','campaign structure value','priority','random string','hash']] = adgroups['alias'].str.split(' - ',expand=True)
 print(adgroups)
 
 
-//New_Cell
+# New_Cell
 import mysql.connnector as mysql 
 from mysql.connnector import Error
 
@@ -46,7 +43,7 @@ except Error as e:
 
 
 
-//New_Cell
+# New_Cell
 import mysql.connector as mysql
 from mysql.connector import Error
 try:
@@ -90,7 +87,7 @@ except Error as e:
 
 
 
-//New_Cell
+# New_Cell
 sql = "SELECT * FROM bidnamic.campaigns"
 cursor.execute(sql)
 result = cursor.fetchall()
@@ -111,11 +108,11 @@ for i in result:
 
 
 
-//New_Cell
+# New_Cell
 
-// 'Shift','Shopping','country','campaign structure value','priority','random string','hash'
-// We sometimes need to know the ROAS aggregated by country and/or by priority.
-// cost column in search term, country and priority column in adgroups
+#  'Shift','Shopping','country','campaign structure value','priority','random string','hash'
+#  We sometimes need to know the ROAS aggregated by country and/or by priority.
+#  cost column in search term, country and priority column in adgroups
 
 sql = "SELECT st.ad_group_id, st.campaign_id, SUM (st.cost), ag.country, ag.priority\
         FROM search_terms as st\
